@@ -1,3 +1,4 @@
+import utilStyles from '../../styles/utils.module.css'
 import Date from '../../components/date'
 import Head from 'next/head'
 import Layout from '../../components/layout'
@@ -27,12 +28,13 @@ const Post = ({ postData }) => {
         <title>{postData.title}</title>
       </Head>
 
-      {postData.title}
-      <br />
-      {postData.id}
-      <br />
-      <Date dateString={postData.date} />
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }}></div>
+      <article>
+        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+        <div className={utilStyles.lightText}>
+          <Date dateString={postData.date} />
+          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }}></div>
+        </div>
+      </article>
     </Layout>
   )
 }
